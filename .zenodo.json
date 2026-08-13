@@ -1,0 +1,27 @@
+{
+  "description": "Evidence-Driven Project State - an evidence-driven, state-based framework for traceable project state and reviewable handoffs. Architecture-first; domain-extensible.",
+  "license": "MIT",
+  "title": "Evidence-Driven Project State",
+  "version": "0.1.0-alpha",
+  "upload_type": "software",
+  "publication_date": "2026-08-14",
+  "creators": [
+    {
+      "name": "(to be filled: family name, given name)",
+      "affiliation": "Independent",
+      "orcid": "https://orcid.org/0000-0000-0000-0000"
+    }
+  ],
+  "keywords": [
+    "architectural computing",
+    "agent skills",
+    "project state",
+    "evidence management",
+    "source authority",
+    "design research",
+    "LLM",
+    "knowledge governance"
+  ],
+  "access_right": "open",
+  "language": "eng"
+}

@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Python / node leftovers
+__pycache__/
+*.pyc
+node_modules/
+
+# Temp artifacts
+*.log
+*.tmp
+*.bak
+
+# Local notes or private scratch files
+scratch/
+private/
+*.local.md

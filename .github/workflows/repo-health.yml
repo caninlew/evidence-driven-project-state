@@ -1,0 +1,81 @@
+name: Repo Health
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate repository, Skills, and eval definitions
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+
+          $requiredFiles = @(
+            "README.md", "README.zh-CN.md", "AUTHORS.md", "LICENSE",
+            "CONTRIBUTING.md", "SECURITY.md", "CODE_OF_CONDUCT.md",
+            "docs/INSTALLATION.md", "docs/QUICKSTART.md",
+            "CHANGELOG.md", "RELEASE_NOTES_v0.md",
+            "evals/README.md", "evals/evals.json"
+          )
+          foreach ($file in $requiredFiles) {
+            if (-not (Test-Path -LiteralPath $file)) { throw "Missing required file: $file" }
+          }
+
+          $skillDirs = Get-ChildItem -LiteralPath "skills" -Directory
+          if ($skillDirs.Count -lt 1) { throw "No skill directories found." }
+
+          foreach ($dir in $skillDirs) {
+            $skillFile = Join-Path $dir.FullName "SKILL.md"
+            if (-not (Test-Path -LiteralPath $skillFile)) { throw "Missing SKILL.md in $($dir.Name)" }
+            $text = Get-Content -Raw -Encoding utf8 -LiteralPath $skillFile
+            if (-not $text.StartsWith("---")) { throw "Missing frontmatter in $skillFile" }
+            $parts = $text -split "(?m)^---\s*$", 3
+            if ($parts.Count -lt 3) { throw "Unclosed frontmatter in $skillFile" }
+            $frontmatter = $parts[1]
+            $keys = [regex]::Matches($frontmatter, "(?m)^([A-Za-z0-9_-]+):") | ForEach-Object { $_.Groups[1].Value }
+            $unexpected = @($keys | Where-Object { $_ -notin @("name", "description") })
+            if ($unexpected.Count) { throw "Non-portable frontmatter keys in $skillFile: $($unexpected -join ', ')" }
+            $name = [regex]::Match($frontmatter, "(?m)^name:\s*(.+)$").Groups[1].Value.Trim()
+            $description = [regex]::Match($frontmatter, "(?m)^description:\s*(.+)$").Groups[1].Value.Trim()
+            if ($name -ne $dir.Name) { throw "Skill name/folder mismatch: $name vs $($dir.Name)" }
+            if ($name.Length -gt 64 -or $name -notmatch "^[a-z0-9]+(?:-[a-z0-9]+)*$") { throw "Invalid skill name: $name" }
+            if ($description.Length -lt 1 -or $description.Length -gt 1024) { throw "Invalid description length in $skillFile" }
+          }
+
+          $markdownFiles = Get-ChildItem -Recurse -File -Filter *.md
+          foreach ($file in $markdownFiles) {
+            $content = Get-Content -Raw -Encoding utf8 -LiteralPath $file.FullName
+            foreach ($match in [regex]::Matches($content, '\[[^\]]+\]\(([^)]+)\)')) {
+              $target = $match.Groups[1].Value.Trim()
+              if ($target -match '^(https?:|mailto:|#|file://)') { continue }
+              $cleanTarget = $target.Split('#')[0]
+              if ([string]::IsNullOrWhiteSpace($cleanTarget)) { continue }
+              $resolved = Join-Path $file.DirectoryName $cleanTarget
+              if (-not (Test-Path -LiteralPath $resolved)) { throw "Broken relative link in $($file.FullName): $target" }
+            }
+          }
+
+          $privateResiduePattern$privateResiduePattern = '10_output|90_log|vision_analyze|@excalidraw/cli'
+          $skillResidue = Get-ChildItem -LiteralPath "skills" -Recurse -File | Select-String -Pattern $privateResiduePattern
+          if ($skillResidue) { throw "Private or host-specific residue found in public Skills: $($skillResidue.Path -join ', ')" }
+
+          $evals = Get-Content -Raw -Encoding utf8 -LiteralPath "evals/evals.json" | ConvertFrom-Json
+          if ($evals.Count -lt 3) { throw "At least three eval cases are required." }
+          foreach ($case in $evals) {
+            if (-not $case.id -or -not $case.skill -or -not $case.prompt -or $case.assertions.Count -lt 1) {
+              throw "Incomplete eval case: $($case.id)"
+            }
+            if (-not (Test-Path -LiteralPath (Join-Path "skills" $case.skill))) { throw "Unknown eval skill: $($case.skill)" }
+            foreach ($fixture in $case.files) {
+              if (-not (Test-Path -LiteralPath (Join-Path "evals" $fixture))) { throw "Missing eval fixture: $fixture" }
+            }
+          }
+
+          Write-Host "Repository structure, frontmatter, links, de-identification, and eval definitions pass."

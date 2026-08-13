@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software or its methods, please cite it as below. Until the author profile is finalized, update this file before the first public release."
+title: "Evidence-Driven Project State"
+abstract: >-
+  An evidence-driven, state-based framework for turning complex, multi-source
+  project work into traceable project state, bounded action, and reviewable
+  handoffs. Architecture-first today; the governance method is designed to
+  generalize to consulting, product, research, and other knowledge-intensive
+  work. Published as a research artifact; peer-reviewed claims are pending.
+authors:
+  - family-names: "(to be filled)"
+    given-names: "(to be filled)"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "Independent; affiliation with an architecture institute is biographical only"
+version: "0.1.0-alpha"
+date-released: "2026-08-14"
+license: "MIT"
+repository-code: "https://github.com/<owner>/evidence-driven-project-state"
+keywords:
+  - architectural computing
+  - agent skills
+  - project state
+  - evidence management
+  - source authority
+  - design research
+  - LLM
+  - knowledge governance

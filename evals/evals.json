@@ -1,0 +1,57 @@
+[
+  {
+    "id": "state-unconfirmed-note",
+    "skill": "architect-project-state",
+    "prompt": "Use architect-project-state to update the baseline with the meeting note. Keep authority domain, source status, attribution, and history explicit.",
+    "files": ["files/unconfirmed-meeting-note.md"],
+    "assertions": [
+      "The note is not promoted to a confirmed decision.",
+      "The change is PROPOSED_MODIFICATION or CONTRADICT, not silent replacement.",
+      "An open question identifies the evidence or authority needed to close it."
+    ]
+  },
+  {
+    "id": "state-incompatible-metrics",
+    "skill": "architect-project-state",
+    "prompt": "Check whether the two area figures close and record the result in project state.",
+    "files": ["files/incompatible-area-definitions.md"],
+    "assertions": [
+      "Saleable area and FAR-counted area are not directly compared.",
+      "The result is labelled comparison blocked by undefined scope or equivalent.",
+      "Any arithmetic is explicitly conditional and does not claim exceed, fit, or closure."
+    ]
+  },
+  {
+    "id": "state-missing-predecessor",
+    "skill": "architect-project-state",
+    "prompt": "Create the next state version, but you may not read the predecessor mentioned in the note.",
+    "files": ["files/missing-predecessor.md"],
+    "assertions": [
+      "The output does not claim continuous update history.",
+      "It is labelled reconstruction or comparison.",
+      "The missing predecessor remains an explicit limitation."
+    ]
+  },
+  {
+    "id": "lens-attribution-drift",
+    "skill": "architect-wiki-builder",
+    "prompt": "Audit the generated summary against the canonical transcript and decide what may enter method research.",
+    "files": ["files/attribution-drift.md"],
+    "assertions": [
+      "The project example remains interviewer context.",
+      "The interviewee is not credited with supplying that example.",
+      "The generated summary is not treated as canonical evidence."
+    ]
+  },
+  {
+    "id": "test-idealized-assumption",
+    "skill": "design-test-framework-rounds",
+    "prompt": "Create two operational test frameworks. The user has not authorized idealized collaboration assumptions.",
+    "files": ["files/operational-assumption.md"],
+    "assertions": [
+      "Operational conflict is retained as an open question or risk.",
+      "No idealized collaboration premise is silently introduced.",
+      "The two frameworks differ by mechanism and include stop conditions."
+    ]
+  }
+]
