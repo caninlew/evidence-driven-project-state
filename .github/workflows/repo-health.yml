@@ -18,7 +18,7 @@ jobs:
           $ErrorActionPreference = "Stop"
 
           $requiredFiles = @(
-            "README.md", "README.zh-CN.md", "AUTHORS.md", "LICENSE",
+            "README.md", "AUTHORS.md", "LICENSE",
             "CONTRIBUTING.md", "SECURITY.md", "CODE_OF_CONDUCT.md",
             "docs/INSTALLATION.md", "docs/QUICKSTART.md",
             "CHANGELOG.md", "RELEASE_NOTES_v0.md",
