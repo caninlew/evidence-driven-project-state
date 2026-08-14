@@ -9,7 +9,7 @@ Email: `liujianing@tjad.cn`
 ORCID: [0009-0004-0228-4526](https://orcid.org/0009-0004-0228-4526)
 
 Jianing Liu is the sole author and independent developer of the initial
-`0.1.0-alpha` research artifact.
+`0.1.0-alpha.1` research artifact.
 
 ## Contribution statement
 

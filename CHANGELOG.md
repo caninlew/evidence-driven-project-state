@@ -14,6 +14,14 @@ All notable changes to this documentation-and-skill repository are recorded here
 
 - archival attribution now requires a stable individual public identity rather than optional anonymous release wording;
 - public fixtures are explicitly classified as development regressions rather than a held-out benchmark.
+
+## [0.1.0-alpha.1] - 2026-08-14
+
+### Changed
+
+- synchronized the public author identity, ORCID, and release metadata;
+- issued an archival patch release after enabling the repository in Zenodo;
+- made no changes to Skill methods, schemas, or evaluation cases.
 ## [0.1.0-alpha] - 2026-08-14
 
 ### Added

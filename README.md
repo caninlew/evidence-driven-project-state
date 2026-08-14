@@ -85,7 +85,7 @@
 
 ### 当前状态与引用
 
-**v0.1.0-alpha / architecture-first。** 现有案例用于开发回归，不是独立 held-out benchmark；本仓库是研究软件产物，不是同行评议结论或论文预印本。详见[研究状态](RESEARCH_STATUS.md)。
+**v0.1.0-alpha.1 / architecture-first。** 现有案例用于开发回归，不是独立 held-out benchmark；本仓库是研究软件产物，不是同行评议结论或论文预印本。详见[研究状态](RESEARCH_STATUS.md)。
 
 研究或衍生工作应引用实际使用的版本化 Release。机器可读的引用元数据见 [`CITATION.cff`](CITATION.cff)；作者 ORCID 为 [0009-0004-0228-4526](https://orcid.org/0009-0004-0228-4526)。
 
@@ -169,7 +169,7 @@ Not a fit: trivial tasks, teams needing only a Kanban board, or workflows that e
 
 ### Status and citation
 
-**v0.1.0-alpha / architecture-first.** The included cases are development regressions, not a held-out benchmark. This repository is a research software artifact, not a peer-reviewed result or preprint. See [RESEARCH_STATUS.md](RESEARCH_STATUS.md).
+**v0.1.0-alpha.1 / architecture-first.** The included cases are development regressions, not a held-out benchmark. This repository is a research software artifact, not a peer-reviewed result or preprint. See [RESEARCH_STATUS.md](RESEARCH_STATUS.md).
 
 Use the exact versioned release in research or derivative work. Machine-readable citation metadata is available in [`CITATION.cff`](CITATION.cff); the author ORCID is [0009-0004-0228-4526](https://orcid.org/0009-0004-0228-4526).
 

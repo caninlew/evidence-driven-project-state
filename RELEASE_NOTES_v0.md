@@ -1,8 +1,8 @@
-# Release Notes: v0.1.0-alpha
+# Release Notes: v0.1.0-alpha.1
 
 ## What this is
 
-The first public alpha of Evidence-Driven Project State: an architecture-first set of Agent Skills for evidence-heavy project state, method research, falsifiable design tests, and optional knowledge retrieval.
+The DOI-enabled archival patch of the first public alpha of Evidence-Driven Project State: an architecture-first set of Agent Skills for evidence-heavy project state, method research, falsifiable design tests, and optional knowledge retrieval. This patch changes release metadata only; Skill methods, schemas, and evaluation cases are identical to `v0.1.0-alpha`.
 
 ## Compatibility scope
 
