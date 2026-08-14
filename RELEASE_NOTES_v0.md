@@ -39,5 +39,5 @@ This repository is a research software artifact, not a paper or preprint. It con
 1. publish repeatable smoke-run results for Hermes Agent and OpenClaw;
 2. add a genuinely non-architecture fixture set;
 3. record false-positive and false-negative behavior, not only successful demos;
-4. identify a stable individual public name, ORCID if used, and final repository URL before an archival release;
-5. complete the written rights and affiliation gate in `docs/PUBLIC_RELEASE_GATE.md`.
+4. connect the public repository to an archival service before the first DOI-bearing release;
+5. add the DOI and archival identifiers to a subsequent metadata release.

@@ -3,10 +3,12 @@ message: "If you use this software, please cite the versioned release."
 title: "Evidence-Driven Project State"
 type: software
 version: "0.1.0-alpha"
+date-released: 2026-08-14
 authors:
   - family-names: "Liu"
     given-names: "Jianing"
     email: "liujianing@tjad.cn"
+    orcid: "https://orcid.org/0009-0004-0228-4526"
 repository-code: "https://github.com/caninlew/evidence-driven-project-state"
 license: MIT
 keywords:

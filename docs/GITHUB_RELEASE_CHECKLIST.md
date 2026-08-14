@@ -19,17 +19,17 @@
 - [x] 声明第三方材料不受本仓库 MIT License 自动覆盖
 - [x] 声明个人贡献与机构隶属、机构作者身份相互独立
 - [x] 提供非生效的 `CITATION.cff.template`
-- [ ] 发布者姓名、ORCID（如使用）与最终仓库 URL 已确认
-- [ ] 单位知识产权与隶属措辞已完成书面确认
-- [ ] 已生成无占位符的正式 `CITATION.cff`
+- [x] 发布者姓名、ORCID（如使用）与最终仓库 URL 已确认
+- [x] 单位知识产权与隶属措辞已完成书面确认
+- [x] 已生成无占位符的正式 `CITATION.cff`
 
 ## 3. 自动检查
 
-- [ ] GitHub Actions `Repo Health` 通过
-- [ ] Skill frontmatter、相对链接与 eval JSON 通过
-- [ ] 绝对本地路径、敏感案例名与私有研究目录扫描为零
-- [ ] 密钥和认证文件扫描为零
-- [ ] 若同时存在 `.zenodo.json` 与 `CITATION.cff`，已人工解决元数据优先级冲突
+- [x] GitHub Actions `Repo Health` 通过
+- [x] Skill frontmatter、相对链接与 eval JSON 通过
+- [x] 绝对本地路径、敏感案例名与私有研究目录扫描为零
+- [x] 密钥和认证文件扫描为零
+- [x] `.zenodo.json` 不存在，当前无引用元数据优先级冲突
 
 ## 4. GitHub 首发顺序
 
