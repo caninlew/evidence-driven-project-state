@@ -64,10 +64,22 @@ Skill 使用开放的 Agent Skills 文件夹结构，并把 frontmatter 收敛�
 - [作者与隶属声明](AUTHORS.md)
 - [安全说明](SECURITY.md)
 - [评测案例](evals/README.md)
+- [研究状态](RESEARCH_STATUS.md)
+- [可复现性](REPRODUCIBILITY.md)
+- [数据可用性](DATA_AVAILABILITY.md)
+- [来源与演变](PROVENANCE.md)
+- [学术发布边界](ACADEMIC_RELEASE_POLICY.md)
+- [公开发布门](docs/PUBLIC_RELEASE_GATE.md)
 
 ## 当前状态
 
 **公开 alpha / architecture-first。** 方法来自 Hermes Agent 中的多轮真实任务纠正与 forward test；当前仓库已加入去标识化 Skill、宿主安装说明、CI 检查与机器可读 smoke cases。尚不宣称其他宿主或非建筑领域已经达到等效质量。
+
+本仓库是研究软件产物，不是同行评议结论或论文预印本；现有案例用于开发回归，不是独立 held-out benchmark。详见 [研究状态](RESEARCH_STATUS.md)。
+
+## 引用
+
+研究或衍生工作应引用实际使用的版本化 Release。仓库提供 `CITATION.cff.template`，但在发布者姓名、ORCID（如使用）和最终仓库 URL 确认前，不应生成生效的 `CITATION.cff`。详见[公开发布门](docs/PUBLIC_RELEASE_GATE.md)。
 
 ## License
 

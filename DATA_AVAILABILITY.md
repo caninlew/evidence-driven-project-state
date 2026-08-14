@@ -1,21 +1,25 @@
-# Data Availability · 数据可用性声明
+# Data availability
 
-## 分级
+## Publicly available in this repository
 
-| 级别 | 内容 | 状态 |
-|---|---|---|
-| A · 可公开 | 匿名/合成回归案例（`evals/files/`）、示例、Schema | 随仓库公开 |
-| B · 可匿名公开 | 脱敏后的输出样例、统计摘要（论文发表后） | 论文接受后公开 |
-| C · 保密不可公开 | 真实客户项目材料、内部会议记录、未脱敏数据 | 永不公开 |
-| D · 版权不可公开 | 书籍 OCR 原文、访谈原文、网页剪藏全文 | 只存来源登记，不复制 |
-| E · 按合理请求提供 | 汇总统计、分析脚本（不涉及 C/D 的部分） | 通过 Issue/邮箱联系 |
+- Skill instructions and bundled references;
+- documentation and schemas;
+- de-identified development fixtures under `evals/`;
+- machine-readable evaluation definitions;
+- repository validation workflow.
 
-## held-out 测试集策略（论文用）
+These fixtures are intended for development and regression checking. They are not a held-out research dataset and should not be presented as independent validation evidence.
 
-- 测试集已冻结并封存（OSF Embargoed Registration，见 `ACADEMIC_RELEASE_POLICY.md`）；
-- 公开发布时只提供：文件数量、SHA-256 hash、类别分布、冻结日期；
-- **不公开题目与答案**，确保"先冻结、后评测"，避免评测污染。
+## Not included
 
-## 请求流程
+- client, competition, or internal project files;
+- personal, participant, or confidential records;
+- copyrighted books, articles, drawings, photographs, or scraped source collections;
+- credentials, local configuration, private prompts, or system logs;
+- unpublished manuscripts, full research protocols, held-out cases, or unreported study results.
 
-如需访问 E 级内容，请开 Issue（标签 `data-access`）说明用途；仅向确认学术/非商业用途的请求者提供。
+Some restricted material may not be shareable even on request because of confidentiality, contractual restrictions, privacy, or third-party copyright. Do not promise access unless the rights holder and release conditions have been confirmed.
+
+## Future research releases
+
+Any future dataset or result package should be released separately with a version, license, data dictionary, inclusion and exclusion criteria, de-identification statement, rights review, and checksum manifest. The release should state whether cases were used for development, tuning, validation, or held-out testing.

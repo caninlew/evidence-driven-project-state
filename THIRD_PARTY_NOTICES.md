@@ -1,28 +1,27 @@
-# Third-Party Notices · 第三方权利声明
+# Third-party notices and rights boundary
 
-本仓库遵循"公开网页能看到 ≠ 允许放入 GitHub 仓库再发布"的原则。以下为逐项审计清单。
+## Current public package
 
-## 审计结论
+The maintainers intend this repository to contain original Skill instructions, documentation, schemas, and public-safe development fixtures. It does not intentionally redistribute third-party books, articles, project drawings, photographs, client files, or proprietary datasets.
 
-| 内容类别 | 在仓库中的存在 | 权利状态 |
-|---|---|---|
-| 技能定义与 Schema | 有（`skills/`） | ✅ 自研原创，MIT 授权 |
-| 回归案例（`evals/files/`） | 有 | ✅ 匿名/合成材料，无第三方内容 |
-| 示例文档（`examples/`） | 有 | ✅ 合成材料，非真实客户项目 |
-| 图标 / Logo / 产品截图 | 无 | ✅ 未使用任何第三方视觉资产 |
-| 字体 | 无 | ✅ 文档为纯 Markdown |
-| 书籍 OCR 内容 | **无**（不在仓库） | 私有研究区亦仅存页映射，不复制原文 |
-| 访谈原文 / 网页剪藏 | **无**（不在仓库） | 仅存来源登记与访问路径 |
-| 竞赛资料 / 任务书 | **无**（不在仓库） | 公开引用仅限来源注明，不复制全文 |
-| 建筑照片 / 效果图 | **无**（不在仓库） | 未授权图片不进入仓库 |
-| 第三方代码 / 依赖 | 无 | 纯 Markdown 技能包，无运行时依赖 |
+The MIT License applies only to material for which the repository contributors hold the relevant rights. It does not grant rights to external names, marks, quoted material, linked pages, source documents, or assets that may be referenced in future contributions.
 
-## 规则
+## Before adding third-party material
 
-1. 仓库只保留：自己写的技能与 Schema；自己绘制且可授权的图；匿名/合成的测试材料；允许再分发的第三方内容；
-2. 任何从公开渠道引用的来源，只以"来源登记"形式存在（名称、链接、访问日期），不复制原文；
-3. 发现遗漏请开 Issue（标签 `legal`），将尽快移除或替换。
+Record all of the following:
 
-## 引用来源的登记方式
+1. title or asset name;
+2. creator and rights holder;
+3. source URL or canonical location;
+4. license, permission, or statutory basis for reuse;
+5. whether modification and redistribution are permitted;
+6. exact repository path and any required attribution;
+7. reviewer and review date.
 
-见 `skills/*/SKILL.md` 与 `evals/README.md` 中的来源标注约定：只登记、不复制。
+If any field is unresolved, link to the source or describe the evidence without copying the protected material. Do not treat public accessibility as permission to redistribute.
+
+## Names and institutional references
+
+Do not use a person's name, practice name, client name, or institutional identity to imply authorship, endorsement, or an executable persona. Public examples should be de-identified unless explicit permission and a documented research purpose exist.
+
+Report suspected rights issues through [SECURITY.md](SECURITY.md). Material with an unresolved rights claim should be removed from release packaging while the claim is reviewed.

@@ -3,11 +3,13 @@ message: "If you use this software, please cite the versioned release."
 title: "Evidence-Driven Project State"
 type: software
 version: "0.1.0-alpha"
+date-released: "REPLACE_WITH_YYYY-MM-DD"
 authors:
-  - family-names: "Liu"
-    given-names: "Jianing"
-    email: "liujianing@tjad.cn"
-repository-code: "https://github.com/caninlew/evidence-driven-project-state"
+  - family-names: "REPLACE_WITH_FAMILY_NAME"
+    given-names: "REPLACE_WITH_GIVEN_NAME"
+    orcid: "https://orcid.org/REPLACE_WITH_ORCID"
+    affiliation: "REPLACE_WITH_ACCURATE_AFFILIATION_OR_INDEPENDENT_RESEARCHER"
+repository-code: "https://github.com/REPLACE_WITH_OWNER/evidence-driven-project-state"
 license: MIT
 keywords:
   - agent-skills
@@ -19,3 +21,4 @@ abstract: >-
   An architecture-first set of Agent Skills for traceable project state,
   evidence-backed method research, falsifiable design tests, and bounded human
   decision-making in complex multi-source work.
+

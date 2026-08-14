@@ -16,6 +16,7 @@ No statement here implies vendor endorsement or identical behavior across hosts.
 
 This is an independent personal open-source contribution. The contributor's affiliation with TJAD AI专班 / 量子城市专班 is biographical context only and does not make this an official institutional publication.
 
+This repository is a research software artifact, not a paper or preprint. It contains public-safe development regressions but no held-out benchmark, private research protocol, manuscript, participant data, or client source material.
 ## Notable controls
 
 - domain-aware authority, source status, and attribution;
@@ -38,4 +39,5 @@ This is an independent personal open-source contribution. The contributor's affi
 1. publish repeatable smoke-run results for Hermes Agent and OpenClaw;
 2. add a genuinely non-architecture fixture set;
 3. record false-positive and false-negative behavior, not only successful demos;
-4. identify an individual public name or handle for release attribution if desired.
+4. identify a stable individual public name, ORCID if used, and final repository URL before an archival release;
+5. complete the written rights and affiliation gate in `docs/PUBLIC_RELEASE_GATE.md`.

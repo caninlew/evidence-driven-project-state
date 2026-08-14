@@ -15,7 +15,27 @@ node_modules/
 *.tmp
 *.bak
 
+# Credentials and signing material
+.env
+.env.*
+*.token
+*.secret
+*.secrets.*
+*.key
+*.pem
+*.p12
+
 # Local notes or private scratch files
 scratch/
 private/
 *.local.md
+
+# Research material that must stay outside the public repository
+.research-private/
+research-private/
+manuscript-private/
+held-out/
+participants/
+consent/
+raw-private/
+reviewer-correspondence/

@@ -22,6 +22,10 @@ jobs:
             "CONTRIBUTING.md", "SECURITY.md", "CODE_OF_CONDUCT.md",
             "docs/INSTALLATION.md", "docs/QUICKSTART.md",
             "CHANGELOG.md", "RELEASE_NOTES_v0.md",
+            "RESEARCH_STATUS.md", "PROVENANCE.md", "REPRODUCIBILITY.md",
+            "DATA_AVAILABILITY.md", "THIRD_PARTY_NOTICES.md",
+            "ACADEMIC_RELEASE_POLICY.md", "CITATION.cff.template",
+            "docs/PUBLIC_RELEASE_GATE.md", "docs/GITHUB_RELEASE_CHECKLIST.md",
             "evals/README.md", "evals/evals.json"
           )
           foreach ($file in $requiredFiles) {
@@ -41,7 +45,7 @@ jobs:
             $frontmatter = $parts[1]
             $keys = [regex]::Matches($frontmatter, "(?m)^([A-Za-z0-9_-]+):") | ForEach-Object { $_.Groups[1].Value }
             $unexpected = @($keys | Where-Object { $_ -notin @("name", "description") })
-            if ($unexpected.Count) { throw "Non-portable frontmatter keys in $skillFile: $($unexpected -join ', ')" }
+            if ($unexpected.Count) { throw "Non-portable frontmatter keys in ${skillFile}: $($unexpected -join ', ')" }
             $name = [regex]::Match($frontmatter, "(?m)^name:\s*(.+)$").Groups[1].Value.Trim()
             $description = [regex]::Match($frontmatter, "(?m)^description:\s*(.+)$").Groups[1].Value.Trim()
             if ($name -ne $dir.Name) { throw "Skill name/folder mismatch: $name vs $($dir.Name)" }
@@ -62,9 +66,39 @@ jobs:
             }
           }
 
-          $privateResiduePattern$privateResiduePattern = '10_output|90_log|vision_analyze|@excalidraw/cli'
-          $skillResidue = Get-ChildItem -LiteralPath "skills" -Recurse -File | Select-String -Pattern $privateResiduePattern
+          function Find-ContentMatches($files, $pattern) {
+            foreach ($file in $files) {
+              Select-String -LiteralPath $file.FullName -Pattern $pattern
+            }
+          }
+
+          $privateResiduePattern = '10_output|90_log|vision_analyze|@excalidraw/cli'
+          $skillResidue = Find-ContentMatches (Get-ChildItem -LiteralPath "skills" -Recurse -File) $privateResiduePattern
           if ($skillResidue) { throw "Private or host-specific residue found in public Skills: $($skillResidue.Path -join ', ')" }
+
+          $absolutePathHits = Find-ContentMatches $markdownFiles '(?i)(?:[A-Z]:\\|file:///|/Users/|/home/)'
+          if ($absolutePathHits) { throw "Local absolute path found in public Markdown: $($absolutePathHits.Path -join ', ')" }
+          $blockedDirectoryNames = @('.research-private', 'research-private', 'manuscript-private', 'held-out', 'participants', 'consent', 'raw-private', 'reviewer-correspondence')
+          $blockedDirs = Get-ChildItem -Recurse -Directory | Where-Object { $_.Name -in $blockedDirectoryNames }
+          if ($blockedDirs) { throw "Private research directory is tracked: $($blockedDirs.FullName -join ', ')" }
+
+          $secretFiles = Get-ChildItem -Recurse -File | Where-Object {
+            $_.Name -eq '.env' -or $_.Name -like '.env.*' -or $_.Extension -in @('.token', '.secret', '.key', '.pem', '.p12') -or $_.Name -like '*.secrets.*'
+          }
+          if ($secretFiles) { throw "Credential-like file is tracked: $($secretFiles.FullName -join ', ')" }
+
+          if ((Test-Path -LiteralPath 'CITATION.cff') -and (Test-Path -LiteralPath '.zenodo.json')) {
+            throw 'Both CITATION.cff and .zenodo.json are present. Resolve Zenodo metadata precedence deliberately.'
+          }
+          if (Test-Path -LiteralPath 'CITATION.cff') {
+            $citation = Get-Content -Raw -Encoding utf8 -LiteralPath 'CITATION.cff'
+            foreach ($required in @('cff-version:', 'title:', 'version:', 'authors:', 'repository-code:', 'license:')) {
+              if ($citation -notmatch [regex]::Escape($required)) { throw "CITATION.cff is missing $required" }
+            }
+            if ($citation -match 'REPLACE_WITH|YOUR_|example\.com|0000-0000-0000-0000') {
+              throw 'CITATION.cff contains placeholder metadata.'
+            }
+          }
 
           $evals = Get-Content -Raw -Encoding utf8 -LiteralPath "evals/evals.json" | ConvertFrom-Json
           if ($evals.Count -lt 3) { throw "At least three eval cases are required." }
@@ -78,4 +112,4 @@ jobs:
             }
           }
 
-          Write-Host "Repository structure, frontmatter, links, de-identification, and eval definitions pass."
+          Write-Host "Repository structure, frontmatter, links, de-identification, research boundary, citation metadata, and eval definitions pass."

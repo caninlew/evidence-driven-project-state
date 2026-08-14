@@ -2,6 +2,18 @@
 
 All notable changes to this documentation-and-skill repository are recorded here.
 
+## [Unreleased]
+
+### Added
+
+- research status, provenance, reproducibility, data-availability, rights, and academic-release boundaries;
+- a non-active citation template and a hard public-release checklist;
+- repository checks for citation placeholders, local absolute paths, private research filenames, and conflicting Zenodo metadata.
+
+### Changed
+
+- archival attribution now requires a stable individual public identity rather than optional anonymous release wording;
+- public fixtures are explicitly classified as development regressions rather than a held-out benchmark.
 ## [0.1.0-alpha] - 2026-08-14
 
 ### Added

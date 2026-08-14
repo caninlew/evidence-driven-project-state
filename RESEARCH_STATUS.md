@@ -1,33 +1,29 @@
-# Research Status · 研究状态声明
+# Research status
 
-## 这是什么 / 这不是什么
+## Current status
 
-**这是**：一个公开的 research artifact——可复用的技能包、Schema、匿名回归案例与方法说明。
+**Public alpha / research software artifact / not peer reviewed.**
 
-**这不是**：
-- 一份经过同行评审的论文；
-- 对任何方法"普遍有效"的宣称；
-- 单位或任何机构的官方成果。
+This repository publishes reusable workflow instructions, schemas, public-safe development fixtures, and repository checks. It is intended to make an evidence-governance method inspectable and testable without publishing private project material or claiming results that have not been measured.
 
-论文级的研究（多案例实验、统计评估、专家评审、held-out 测试集）**正在进行中**，结果发布前不在本仓库内公开。
+## What has been checked
 
-## 当前验证状态（诚实声明）
+- the four Skill folders satisfy the repository's portable frontmatter rules;
+- the included development cases are machine-readable and de-identified;
+- the originating workflow has been exercised iteratively in Hermes Agent;
+- public documentation distinguishes tested environment, compatibility target, and unverified host;
+- named-person, named-practice, client, and private-project details are excluded from the public Skill package.
 
-| 项目 | 状态 |
-|---|---|
-| `architect-project-state` | 已有 **5 个匿名回归案例**（`evals/`）在参考实现宿主上通过 forward test |
-| `architect-method-lens` | 方法论与反例纪律已成型；跨项目大规模验证进行中 |
-| `design-test-framework-rounds` | 已用于设计测试框架实验；统计评估未发布 |
-| `architect-wiki-builder` | 检索适配器为实验性实现；仅作参考 |
-| 跨平台兼容 | Hermes Agent = 主要测试环境；OpenClaw = 兼容性目标（运行时对齐进行中）；其他宿主 = 仅格式兼容，未经测试 |
-| 跨领域泛化 | 设计上可迁移到咨询/产品/研究场景，**但尚无已发表的跨领域评测** |
+## What has not yet been established
 
-## 边界
+- equivalent behavior across Agent hosts;
+- cross-domain performance outside the current architecture-first pack;
+- held-out task accuracy, inter-rater agreement, or statistically supported effect sizes;
+- causal claims about productivity, quality, risk reduction, or design outcomes;
+- general professional, regulatory, or contractual validity.
 
-- 仓库内任何"方法有效"的表述，均以 `evals/` 中可复现的固定输入回归为限；
-- 未经验证的扩展场景一律标注为 provisional；
-- 论文实验方案、主指标、held-out 测试集已冻结于私有研究区（OSF 封存注册，见 `ACADEMIC_RELEASE_POLICY.md`），不随仓库公开，避免污染评测。
+Development fixtures are regression aids, not an independent benchmark. Future empirical claims must identify the protocol, sample, host, model, Skill commit, reviewer process, exclusions, and negative results.
 
-## 引用建议
+## Relationship to future publications
 
-引用本仓库方法时，请使用 `CITATION.cff`（Zenodo DOI），并注意区分"已发布工件"与"待评审研究结论"。
+This repository is a software and method artifact, not a manuscript or preprint. A future paper may cite a versioned release, but the paper's protocol, held-out material, analysis, and conclusions are not established by this repository. See [ACADEMIC_RELEASE_POLICY.md](ACADEMIC_RELEASE_POLICY.md) and [REPRODUCIBILITY.md](REPRODUCIBILITY.md).

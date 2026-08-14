@@ -88,6 +88,12 @@ Not a fit: trivial tasks, teams needing only a Kanban board, or workflows that e
 - [Authors and affiliation](AUTHORS.md)
 - [Security](SECURITY.md)
 - [Evaluation cases](evals/README.md)
+- [Research status](RESEARCH_STATUS.md)
+- [Reproducibility](REPRODUCIBILITY.md)
+- [Data availability](DATA_AVAILABILITY.md)
+- [Provenance](PROVENANCE.md)
+- [Academic release policy](ACADEMIC_RELEASE_POLICY.md)
+- [Public release gate](docs/PUBLIC_RELEASE_GATE.md)
 
 ## Repository structure
 
@@ -108,6 +114,12 @@ Directory names inside a user's project are recommendations, not protocol requir
 ## Status
 
 **Public alpha / architecture-first.** The workflow grew through repeated real-task corrections and forward tests in Hermes Agent. The repository now includes de-identified Skills, installation guidance, CI checks, and machine-readable smoke cases. It does not yet claim broad host certification or equivalent performance outside architecture.
+
+This is a research software artifact, not a peer-reviewed result or preprint. The included cases are development regressions, not a held-out benchmark. See [RESEARCH_STATUS.md](RESEARCH_STATUS.md).
+
+## Citation
+
+Use the exact versioned release in research or derivative work. A `CITATION.cff.template` is provided, but the active `CITATION.cff` must not be created until the publishing individual's identity, ORCID if used, and final repository URL are confirmed. See the [public release gate](docs/PUBLIC_RELEASE_GATE.md).
 
 ## License
 

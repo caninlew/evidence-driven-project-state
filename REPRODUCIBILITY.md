@@ -1,29 +1,34 @@
-# Reproducibility · 可复现性记录
+# Reproducibility
 
-## 记录模板
+## Purpose
 
-每次实验/回归必须记录以下字段。本仓库的 `evals/` 案例应配套此记录。
+The repository makes workflow instructions inspectable, but reproducibility requires more than publishing prompts. A reported run should preserve enough environment, input, output, and review information for another team to understand what was tested and what remains host-dependent.
 
-```text
-- 日期：
-- Agent 宿主与版本：
-- 模型及版本：
-- Skill commit / hash：
-- 输入文件 hash：
-- 工具权限（允许/禁止）：
-- 温度或随机性配置：
-- 输出（或输出路径）：
-- 人工评审人：
-- 是否重跑：是/否（重跑结果一致/不一致）
-```
+## Minimum run manifest
 
-## 已知限制（诚实声明）
+Record the following for every published evaluation:
 
-- 早期 forward test 的宿主与模型版本细节尚未全部档案化；`v0.1.0-alpha` 发布前将补齐已执行案例的记录，无法补录的标注为"historical, not fully reproducible"；
-- LLM 输出存在平台漂移：同一 Skill 在不同模型版本上的输出可能不同。任何关于"方法有效"的表述，均以固定输入 + 固定版本的回放为准；
-- 论文实验（held-out 测试集）将严格按本模板执行，并在论文中提供完整记录。
+| Field | Requirement |
+|---|---|
+| run ID and timestamp | stable identifier and timezone |
+| repository version | release tag and commit SHA |
+| Skill identity | Skill name and file hash |
+| Agent environment | host, host version, model, and model setting |
+| tools and permissions | available tools, allowed root, network state, and approval mode |
+| input identity | redistributable file or hash plus authority status |
+| procedure | prompt, mode, iteration limit, and any human intervention |
+| output identity | artifact paths or hashes and completion state |
+| evaluation | assertions, rubric, reviewer process, and disagreements |
+| deviations | retries, failures, exclusions, and protocol changes |
 
-## 固定输入原则
+## Development versus evaluation
 
-- 回归案例的输入文件已冻结于 `evals/files/`（内容 hash 记录于 `evals/evals.json`）；
-- 论文级 held-out 测试集：只公开文件数量、hash 与类别分布，不公开题目与答案（见 `DATA_AVAILABILITY.md`）。
+- `evals/` contains public development regression cases.
+- A case seen while writing or correcting a Skill is not held out.
+- Held-out cases must be separated before evaluation and must not be exposed through prompts, fixtures, logs, or repository history.
+- Report unsuccessful and partial runs, not only successful demonstrations.
+- Do not compare hosts unless inputs, permissions, tools, stopping rules, and review criteria are equivalent or the differences are explicitly analyzed.
+
+## Recommended artifact bundle
+
+For a publishable study, archive a public-safe bundle containing the run manifest, versioned Skills, evaluation rubric, allowed inputs or hashes, generated outputs that may be shared, scored result table, adjudication notes, and a machine-readable checksum list. Restricted source material should remain in a separately controlled location described by [DATA_AVAILABILITY.md](DATA_AVAILABILITY.md).

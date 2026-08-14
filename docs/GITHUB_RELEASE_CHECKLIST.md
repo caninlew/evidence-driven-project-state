@@ -1,75 +1,51 @@
 # GitHub Release Checklist
 
-## 1. 必做项
+本清单检查仓库是否达到工程公开标准。涉及署名、知识产权和论文时点的硬门槛，另见 [PUBLIC_RELEASE_GATE.md](PUBLIC_RELEASE_GATE.md)。
 
-- [x] 统一项目名称为 `Evidence-Driven Project State`
-- [x] 删除或隔离所有带有“同事测试”“Hermes 专用”等内部语义的文件
-- [x] README 改为公开仓库口径，而非交接包口径
-- [x] 明确项目定位：core framework + architecture domain pack
-- [x] 补充至少 1 个非建筑领域样例
-- [x] 增加 `LICENSE`
-- [x] 增加 `CONTRIBUTING.md`
-- [x] 增加 `SECURITY.md`
-- [x] 检查是否存在不应公开的内部路径、姓名、组织名、产品名
+## 1. 仓库内容
 
-## 2. 强烈建议项
+- [x] 项目名称统一为 `Evidence-Driven Project State`
+- [x] README 能独立解释项目价值、边界与 architecture-first 状态
+- [x] 包含 MIT License、贡献指南、安全说明与行为准则
+- [x] 包含至少一个非建筑领域开发样例
+- [x] 四个 Skill 使用可移植的 `name` + `description` frontmatter
+- [x] 去除具名建筑师、事务所、客户、项目与本地路径残留
+- [x] 开发 fixtures 与 held-out benchmark 明确区分
 
-- [x] 增加英文版或双语 README
-- [x] 增加仓库 topics
-- [x] 增加架构图或最小流程图
-- [x] 增加“适用边界 / 不适用边界”章节
-- [x] 增加 examples 目录
-- [x] 增加版本号和 changelog 规则
+## 2. 研究与权利边界
 
-## 3. 技术清理项
+- [x] 声明 public alpha、未同行评议和未验证范围
+- [x] 声明公开数据与不可公开数据的边界
+- [x] 声明第三方材料不受本仓库 MIT License 自动覆盖
+- [x] 声明个人贡献与机构隶属、机构作者身份相互独立
+- [x] 提供非生效的 `CITATION.cff.template`
+- [ ] 发布者姓名、ORCID（如使用）与最终仓库 URL 已确认
+- [ ] 单位知识产权与隶属措辞已完成书面确认
+- [ ] 已生成无占位符的正式 `CITATION.cff`
 
-- [x] 检查 skill 内部是否仍有不可公开的路径引用
-- [x] 检查相对路径是否在新目录结构中保持有效
-- [x] 检查是否存在需要替换的内部术语
-- [x] 检查可选依赖的默认地址和说明是否准确
+## 3. 自动检查
 
-## 4. 叙事清理项
+- [ ] GitHub Actions `Repo Health` 通过
+- [ ] Skill frontmatter、相对链接与 eval JSON 通过
+- [ ] 绝对本地路径、敏感案例名与私有研究目录扫描为零
+- [ ] 密钥和认证文件扫描为零
+- [ ] 若同时存在 `.zenodo.json` 与 `CITATION.cff`，已人工解决元数据优先级冲突
 
-发布前应避免：
+## 4. GitHub 首发顺序
 
-- “给同事试用”
-- “内部测试版”
-- “Hermes 工作流实验”
-- “直接丢文件进去自动全做完”
+1. 先创建 private repository，完成一次远端渲染与 Actions 检查。
+2. 完成 [PUBLIC_RELEASE_GATE.md](PUBLIC_RELEASE_GATE.md) 的全部 P0 项。
+3. 转为 public，并在创建首个 Release 前连接 Zenodo GitHub 集成。
+4. 创建 `v0.1.0-alpha` Release，而不是只打 tag。
+5. 核对 Zenodo 归档与 DOI；随后将 DOI 写入下一次引用元数据版本。
+6. 请求或核对 Software Heritage 归档并记录 SWHID。
 
-发布时应突出：
+## 5. 不进入本仓库
 
-- evidence-driven
-- state-based
-- multi-source
-- architecture-first
-- domain-extensible
-- explicit approval boundaries
+- 论文手稿与审稿通信
+- 未公开的完整研究协议与假设
+- held-out 案例、答案与调参历史
+- 客户、参与者、机密或受版权限制的原始材料
+- 凭据、私有配置、终端日志与本机绝对路径
 
-## 5. 开源姿态建议
-
-建议采用的开源姿态是：
-
-1. 先把方法和结构讲清楚
-2. 再把 skill 作为可执行实现附上
-3. 最后逐步扩展更多 domain pack
-
-不要一开始就把项目包装成“大而全 AI 项目管理平台”。
-
-## 6. 发布时的最小完成标准
-
-满足以下条件即可发布 v0：
-
-- [x] README 能独立解释项目价值
-- [x] 至少 1 个真实 domain pack 可用
-- [x] 至少 1 个 example 可帮助理解
-- [x] 有贡献说明和许可证
-- [x] 没有明显内部痕迹
-
-## 7. 最佳首发策略
-
-建议首发为：
-
-**方法框架 + 建筑领域包 + 公开 examples**
-
-先建立可信度，再逐步引入更多领域扩展。
+满足工程检查不等于可以公开；任何 P0 发布阻断项未完成，都应停在 private repository。
