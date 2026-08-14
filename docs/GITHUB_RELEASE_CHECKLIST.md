@@ -35,9 +35,9 @@
 
 1. 先创建 private repository，完成一次远端渲染与 Actions 检查。
 2. 完成 [PUBLIC_RELEASE_GATE.md](PUBLIC_RELEASE_GATE.md) 的全部 P0 项。
-3. 转为 public，并在创建首个 Release 前连接 Zenodo GitHub 集成。
-4. 创建 `v0.1.0-alpha` Release，而不是只打 tag。
-5. 核对 Zenodo 归档与 DOI；随后将 DOI 写入下一次引用元数据版本。
+3. [x] 转为 public，并连接 Zenodo GitHub 集成。
+4. [x] 创建版本化 GitHub Release，而不是只打 tag。
+5. [x] 核对 Zenodo 归档与 DOI，并将 DOI 写入引用元数据。
 6. 请求或核对 Software Heritage 归档并记录 SWHID。
 
 ## 5. 不进入本仓库

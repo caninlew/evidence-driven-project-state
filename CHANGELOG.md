@@ -9,6 +9,7 @@ All notable changes to this documentation-and-skill repository are recorded here
 - research status, provenance, reproducibility, data-availability, rights, and academic-release boundaries;
 - a non-active citation template and a hard public-release checklist;
 - repository checks for citation placeholders, local absolute paths, private research filenames, and conflicting Zenodo metadata.
+- Zenodo DOI metadata and a repository citation badge.
 
 ### Changed
 

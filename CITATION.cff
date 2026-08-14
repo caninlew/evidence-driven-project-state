@@ -3,6 +3,7 @@ message: "If you use this software, please cite the versioned release."
 title: "Evidence-Driven Project State"
 type: software
 version: "0.1.0-alpha.1"
+doi: "10.5281/zenodo.21931351"
 date-released: 2026-08-14
 authors:
   - family-names: "Liu"

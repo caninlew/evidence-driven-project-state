@@ -2,6 +2,8 @@
 
 [中文](#中文) · [English](#english)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21931351.svg)](https://doi.org/10.5281/zenodo.21931351)
+
 > 把复杂、多来源工作转成可追溯项目状态、有边界行动与可校审交接。
 >
 > Turn complex, multi-source work into traceable project state, bounded action, and reviewable handoffs.
@@ -87,7 +89,7 @@
 
 **v0.1.0-alpha.1 / architecture-first。** 现有案例用于开发回归，不是独立 held-out benchmark；本仓库是研究软件产物，不是同行评议结论或论文预印本。详见[研究状态](RESEARCH_STATUS.md)。
 
-研究或衍生工作应引用实际使用的版本化 Release。机器可读的引用元数据见 [`CITATION.cff`](CITATION.cff)；作者 ORCID 为 [0009-0004-0228-4526](https://orcid.org/0009-0004-0228-4526)。
+研究或衍生工作应引用实际使用的版本化 Release。归档版本 DOI 为 [10.5281/zenodo.21931351](https://doi.org/10.5281/zenodo.21931351)；机器可读的引用元数据见 [`CITATION.cff`](CITATION.cff)，作者 ORCID 为 [0009-0004-0228-4526](https://orcid.org/0009-0004-0228-4526)。
 
 ---
 
@@ -171,7 +173,7 @@ Not a fit: trivial tasks, teams needing only a Kanban board, or workflows that e
 
 **v0.1.0-alpha.1 / architecture-first.** The included cases are development regressions, not a held-out benchmark. This repository is a research software artifact, not a peer-reviewed result or preprint. See [RESEARCH_STATUS.md](RESEARCH_STATUS.md).
 
-Use the exact versioned release in research or derivative work. Machine-readable citation metadata is available in [`CITATION.cff`](CITATION.cff); the author ORCID is [0009-0004-0228-4526](https://orcid.org/0009-0004-0228-4526).
+Use the exact versioned release in research or derivative work. The archived version DOI is [10.5281/zenodo.21931351](https://doi.org/10.5281/zenodo.21931351). Machine-readable citation metadata is available in [`CITATION.cff`](CITATION.cff); the author ORCID is [0009-0004-0228-4526](https://orcid.org/0009-0004-0228-4526).
 
 ## Repository structure / 仓库结构
 
